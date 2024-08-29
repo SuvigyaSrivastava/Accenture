@@ -1,0 +1,35 @@
+#include <climits> // Include this to use INT_MIN
+#include <string>  // Include this to use the string class
+
+string isSubset(int a1[], int a2[], int n, int m) {
+    string ans = "";
+    int k = 0;
+
+    // If a2 has more elements than a1, it can't be a subset
+    if(n < m) {
+        return "No";
+    }
+      
+    for(int i = 0; i < m; i++) {
+        bool found = false; // To check if the element was found in a1
+        for(int j = 0; j < n; j++) {
+            if(a2[i] == a1[j]) {
+                k++;
+                a1[j] = INT_MIN; // Mark this element as used
+                found = true;
+                break;
+            }
+        }
+        if (!found) { // If a2[i] was not found in a1, then a2 is not a subset
+            return "No";
+        }
+    }
+    
+    if(k == m) {
+        ans = "Yes";
+    } else {
+        ans = "No";
+    }
+    
+    return ans;
+}
