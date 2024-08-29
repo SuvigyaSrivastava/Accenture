@@ -1,0 +1,44 @@
+#include <iostream>
+#include <vector>
+#include <algorithm> // Include this header for sort
+
+using namespace std;
+
+int ans(int arr[], int n) {
+    vector<int> Even;
+    vector<int> Odd;
+    
+    for(int i = 0; i < n; i++) {
+        if(i % 2 == 0) {
+            Even.push_back(arr[i]);
+        } else {
+            Odd.push_back(arr[i]);
+        }
+    }
+
+    // Fix the sort function calls and remove the incorrect syntax
+    sort(Even.rbegin(), Even.rend());
+    sort(Odd.begin(), Odd.end());
+
+    // Add a check to ensure there are enough elements in Even and Odd vectors
+    if (Even.size() < 2 || Odd.size() < 2) {
+        return -1; // Return some error value or handle the case as required
+    }
+
+    int res = Even[1] + Odd[1];
+    return res;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    
+    int arr[n];
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    // Fix the function call to ans and ensure it prints correctly
+    cout << ans(arr, n);
+    return 0;
+}
