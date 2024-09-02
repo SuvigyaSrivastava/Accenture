@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int count = 0;
+    int x, y;
+    cin >> x >> y;
+    
+    while (x < y) {
+        x += 8;
+        count++;
+    }
+    
+    cout << count;
+    return 0;
+}
